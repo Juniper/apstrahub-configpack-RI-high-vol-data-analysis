@@ -1,8 +1,10 @@
 ---
 manifest_version: 1
-description: This is an example pack which includes a single configlet.
+description: This pack creates the EVPN DF election telemetry elements required for Routing Intelligence high-volume data analysis.
 supported_apstra_versions:
-  - 5.0.0
-  - 5.0.1
-  - 5.1.0
-  - 6.0.0
+  - 6.1.0
+  - 6.1.1
+  - 6.1.2
+tags:
+  type: Configuration
+  purpose: Analytics

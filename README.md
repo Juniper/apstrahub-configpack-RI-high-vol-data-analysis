@@ -1,6 +1,6 @@
-# apstrahub-configpack-example
+# apstrahub-configpack-RI-high-vol-data-analysis
 
-This repository contains an ApstraHub ConfigPack.
+This repository contains an ApstraHub ConfigPack for Routing Intelligence high-volume data analysis features.
 
 ConfigPack documentation intended for end users is required to appear [here, in the README.md file in the `pack` directory](./pack/README.md). Check that file for details about this ConfigPack.
 

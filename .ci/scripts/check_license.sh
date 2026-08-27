@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#  Copyright (c) Juniper Networks, Inc., 2025-2025.
+#  Copyright (c) Juniper Networks, Inc., 2025-2026.
 #  All rights reserved.
 #  SPDX-License-Identifier: MIT
 
