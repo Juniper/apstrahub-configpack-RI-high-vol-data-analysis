@@ -51,19 +51,13 @@ resource "apstra_raw_json" "ri_evpn_df_election_probe" {
             "name": "Extensible Service Collector",
             "description": "",
             "units": {
-                "ESI_LAST_DF_UPD_TS": "",
-                "ESI_RMT_MAC_LABEL": "",
-                "ESI_RMT_ALIASING_LABEL": "",
-                "ESI_RMT_PE_MODE": "",
-                "ESI_VAL": "",
+                "ESI_LOCAL_INTF_STATUS": "",
                 "ESI_LOCAL_INTF": "",
                 "ESI_STATUS": "",
                 "ESI_BDF": "",
-                "ESI_LOCAL_INTF_STATUSS": "",
-                "ESI_NUM_RMT_PES": "",
                 "ESI_DF": "",
                 "ESI_DF_ALG": "",
-                "ESI_RMT_PE_IP_ADDR": ""
+                "ESI_NUM_LOCAL_INTF": ""
             },
             "enable_metric_logging": false,
             "retention_duration": 86400,

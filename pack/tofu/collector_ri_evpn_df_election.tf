@@ -8,7 +8,7 @@ resource "apstra_raw_json" "evpn_df_election_collector" {
   ]
 
   url = "/api/telemetry/collectors"
-        id  = "ri_evpn_df_election_${var.blueprint_id}"
+  id  = "ri_evpn_df_election_${var.blueprint_id}"
 
   payload = <<-EOT
 {
@@ -18,11 +18,11 @@ resource "apstra_raw_json" "evpn_df_election_collector" {
             "platform": {
                 "os_type": "junos",
                 "os_version": "23.4r2",
-                "family": "junos",
+                "family": "junos,junos-ex,junos-qfx",
                 "model": ""
             },
             "config": {
-                "xml_parse_evpn_instance": {
+                "evpn_esi_accessors": {
                     "accessors": {
                         "evpn_esi_local_intf_status": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-local-intf-information/evpn-esi-local-intf-status",
@@ -44,11 +44,6 @@ resource "apstra_raw_json" "evpn_df_election_collector" {
                             "type": "String",
                             "none_value": null
                         },
-                        "evpn_esi_remote_aliasing_label": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-remote-pe-information/evpn-esi-remote-pe/evpn-esi-remote-aliasing-label",
-                            "type": "String",
-                            "none_value": null
-                        },
                         "esi_df_election_algorithm": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-df-election-algorithm",
                             "type": "String",
@@ -59,13 +54,8 @@ resource "apstra_raw_json" "evpn_df_election_collector" {
                             "type": "String",
                             "none_value": null
                         },
-                        "evpn_esi_remote_mac_label": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-remote-pe-information/evpn-esi-remote-pe/evpn-esi-remote-mac-label",
-                            "type": "String",
-                            "none_value": null
-                        },
-                        "evpn_num_esi": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-num-esi",
+                        "esi_df_no_preempt": {
+                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-df-no-preempt",
                             "type": "String",
                             "none_value": null
                         },
@@ -79,13 +69,28 @@ resource "apstra_raw_json" "evpn_df_election_collector" {
                             "type": "String",
                             "none_value": null
                         },
-                        "evpn_esi_remote_pe_mode": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-remote-pe-information/evpn-esi-remote-pe/evpn-esi-remote-pe-mode",
+                        "evpn_esi_num_local_intf": {
+                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-local-intf-information/evpn-esi-num-local-intf",
+                            "type": "String",
+                            "none_value": null
+                        },
+                        "esi_backup_df_no_preempt": {
+                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-backup-df-no-preempt",
+                            "type": "String",
+                            "none_value": null
+                        },
+                        "esi_backup_df_preference": {
+                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-backup-df-preference",
                             "type": "String",
                             "none_value": null
                         },
                         "esi_designated_forwarder": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-designated-forwarder",
+                            "type": "String",
+                            "none_value": null
+                        },
+                        "esi_df_preference": {
+                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-df-preference",
                             "type": "String",
                             "none_value": null
                         },
@@ -100,44 +105,39 @@ resource "apstra_raw_json" "evpn_df_election_collector" {
                             "none_value": null
                         }
                     },
-                    "cmd": "show evpn instance esi-info | display xml",
+                    "cmd": "show evpn instance esi-info",
                     "desc": "",
                     "type": "xml_transform"
                 },
-                "select_esi_fields": {
+                "evpn_esi_select": {
                     "desc": "",
                     "type": "select_filter",
-                    "from": "xml_parse_evpn_instance",
+                    "from": "evpn_esi_accessors",
                     "row": {
                         "keys": {
-                            "EVI": "evpn_instance_name"
+                            "EVI": "evpn_instance_name",
+                            "ESI_VAL": "evpn_esi_value"
                         },
                         "values": {
-                            "ESI_RMT_MAC_LABEL": "evpn_esi_remote_mac_label",
-                            "ESI_LOCAL_INTF_STATUSS": "evpn_esi_local_intf_status",
-                            "ESI_LAST_DF_UPD_TS": "esi_last_df_update_timestamp",
                             "ESI_DF": "esi_designated_forwarder",
-                            "ESI_VAL": "evpn_esi_value",
-                            "ESI_STATUS": "evpn_esi_status",
-                            "ESI_NUM_RMT_PES": "evpn_esi_num_remote_pe",
-                            "ESI_RMT_PE_MODE": "evpn_esi_remote_pe_mode",
-                            "ESI_LOCAL_INTF": "evpn_esi_local_intf_name",
-                            "ESI_RMT_PE_IP_ADDR": "evpn_esi_remote_pe_ipaddr",
-                            "ESI_DF_ALG": "esi_df_election_algorithm",
                             "ESI_BDF": "esi_backup_forwarder",
-                            "ESI_RMT_ALIASING_LABEL": "evpn_esi_remote_aliasing_label"
+                            "ESI_DF_ALG": "esi_df_election_algorithm",
+                            "ESI_STATUS": "evpn_esi_status",
+                            "ESI_LOCAL_INTF": "evpn_esi_local_intf_name",
+                            "ESI_LOCAL_INTF_STATUS": "evpn_esi_local_intf_status",
+                            "ESI_NUM_LOCAL_INTF": "evpn_esi_num_local_intf"
                         }
                     }
                 },
-                "filter_non_irb": {
+                "evpn_esi_local_filter": {
                     "type": "condition_filter",
-                    "from": "select_esi_fields",
+                    "from": "evpn_esi_select",
                     "desc": "",
                     "filter": "'irb' not in values[\"ESI_LOCAL_INTF\"]"
                 },
                 "ri_evpn_df_election_${var.blueprint_id}": {
                     "type": "service_sink",
-                    "from": "filter_non_irb",
+                    "from": "evpn_esi_local_filter",
                     "desc": ""
                 }
             },

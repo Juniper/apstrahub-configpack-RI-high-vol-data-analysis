@@ -4,7 +4,7 @@
 
 resource "apstra_raw_json" "evpn_df_election_service" {
   url = "/api/telemetry-service-registry"
-        id  = "ri_evpn_df_election_${var.blueprint_id}"
+  id  = "ri_evpn_df_election_${var.blueprint_id}"
 
   payload = <<-EOT
 {
@@ -13,11 +13,15 @@ resource "apstra_raw_json" "evpn_df_election_service" {
         "properties": {
             "key": {
                 "properties": {
+                    "ESI_VAL": {
+                        "type": "string"
+                    },
                     "EVI": {
                         "type": "string"
                     }
                 },
                 "required": [
+                    "ESI_VAL",
                     "EVI"
                 ],
                 "type": "object"
@@ -33,34 +37,16 @@ resource "apstra_raw_json" "evpn_df_election_service" {
                     "ESI_DF_ALG": {
                         "type": "string"
                     },
-                    "ESI_LAST_DF_UPD_TS": {
-                        "type": "string"
-                    },
                     "ESI_LOCAL_INTF": {
                         "type": "string"
                     },
-                    "ESI_LOCAL_INTF_STATUSS": {
+                    "ESI_LOCAL_INTF_STATUS": {
                         "type": "string"
                     },
-                    "ESI_NUM_RMT_PES": {
-                        "type": "string"
-                    },
-                    "ESI_RMT_ALIASING_LABEL": {
-                        "type": "string"
-                    },
-                    "ESI_RMT_MAC_LABEL": {
-                        "type": "string"
-                    },
-                    "ESI_RMT_PE_IP_ADDR": {
-                        "type": "string"
-                    },
-                    "ESI_RMT_PE_MODE": {
+                    "ESI_NUM_LOCAL_INTF": {
                         "type": "string"
                     },
                     "ESI_STATUS": {
-                        "type": "string"
-                    },
-                    "ESI_VAL": {
                         "type": "string"
                     }
                 },
@@ -68,16 +54,10 @@ resource "apstra_raw_json" "evpn_df_election_service" {
                     "ESI_BDF",
                     "ESI_DF",
                     "ESI_DF_ALG",
-                    "ESI_LAST_DF_UPD_TS",
                     "ESI_LOCAL_INTF",
-                    "ESI_LOCAL_INTF_STATUSS",
-                    "ESI_NUM_RMT_PES",
-                    "ESI_RMT_ALIASING_LABEL",
-                    "ESI_RMT_MAC_LABEL",
-                    "ESI_RMT_PE_IP_ADDR",
-                    "ESI_RMT_PE_MODE",
-                    "ESI_STATUS",
-                    "ESI_VAL"
+                    "ESI_LOCAL_INTF_STATUS",
+                    "ESI_NUM_LOCAL_INTF",
+                    "ESI_STATUS"
                 ],
                 "type": "object"
             }

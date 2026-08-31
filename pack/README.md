@@ -9,5 +9,5 @@ This config pack creates the IBA elements required to collect EVPN DF election t
 | Component | Name | Description |
 | ----------- | ------ | ------------- |
 | Service Registry | ri_evpn_df_election_${blueprint_id} | Service schema for EVPN DF election telemetry |
-| Custom Collector | ri_evpn_df_election_${blueprint_id} | Collects EVPN DF election telemetry via `show evpn instance esi-info \| display xml` |
+| Custom Collector | ri_evpn_df_election_${blueprint_id} | Collects EVPN DF election telemetry via `show evpn instance esi-info` |
 | Probe | ri_evpn_df_election_probe | Streams EVPN DF election telemetry from deployed leaf and access switches |

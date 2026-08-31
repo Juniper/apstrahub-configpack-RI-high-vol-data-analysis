@@ -5,7 +5,7 @@
 terraform {
   required_providers {
     apstra = {
-      source = "Juniper/apstra"
+      source  = "Juniper/apstra"
       version = "~> 0.102.0"
     }
   }
