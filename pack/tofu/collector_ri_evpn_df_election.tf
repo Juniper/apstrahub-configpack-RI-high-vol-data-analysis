@@ -27,82 +27,47 @@ resource "apstra_raw_json" "evpn_df_election_collector" {
                         "evpn_esi_local_intf_status": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-local-intf-information/evpn-esi-local-intf-status",
                             "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "evpn_esi_value": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-value",
                             "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "esi_backup_forwarder": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-backup-forwarder",
                             "type": "String",
-                            "none_value": null
-                        },
-                        "evpn_esi_remote_pe_ipaddr": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-remote-pe-information/evpn-esi-remote-pe/evpn-esi-remote-pe-ipaddr",
-                            "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "esi_df_election_algorithm": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-df-election-algorithm",
                             "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "evpn_instance_name": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-instance-name",
                             "type": "String",
-                            "none_value": null
-                        },
-                        "esi_df_no_preempt": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-df-no-preempt",
-                            "type": "String",
-                            "none_value": null
-                        },
-                        "evpn_esi_num_remote_pe": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-remote-pe-information/evpn-esi-num-remote-pe",
-                            "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "evpn_esi_local_intf_name": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-local-intf-information/evpn-esi-local-intf-name",
                             "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "evpn_esi_num_local_intf": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-local-intf-information/evpn-esi-num-local-intf",
                             "type": "String",
-                            "none_value": null
-                        },
-                        "esi_backup_df_no_preempt": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-backup-df-no-preempt",
-                            "type": "String",
-                            "none_value": null
-                        },
-                        "esi_backup_df_preference": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-backup-df-preference",
-                            "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "esi_designated_forwarder": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-designated-forwarder",
                             "type": "String",
-                            "none_value": null
-                        },
-                        "esi_df_preference": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-df-preference",
-                            "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         },
                         "evpn_esi_status": {
                             "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-status",
                             "type": "String",
-                            "none_value": null
-                        },
-                        "esi_last_df_update_timestamp": {
-                            "path": "/evpn-instance-information/evpn-instance/evpn-esi/evpn-esi-df-information/esi-last-df-update-timestamp",
-                            "type": "String",
-                            "none_value": null
+                            "none_value": ""
                         }
                     },
                     "cmd": "show evpn instance esi-info",
